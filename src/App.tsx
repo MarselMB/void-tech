@@ -1,10 +1,10 @@
 import { FC } from 'react';
+import TestComponent from './TestComponent';
 
 const App: FC = () => {
   return (
     <div>
-      <h1>Hello, VoidTech!</h1>
-      <p>Welcome to your App.</p>
+      <TestComponent />
     </div>
   );
 };

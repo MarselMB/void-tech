@@ -51,28 +51,53 @@ module.exports = (_, { mode }) => {
           ],
         },
         {
-          test: /\.svg/,
-          type: 'asset/inline',
+          test: /\.svg$/i,
+          oneOf: [
+            {
+              issuer: /\.[jt]sx?$/,
+              resourceQuery: /react/, // `?react` will trigger this
+              use: ['@svgr/webpack'],
+            },
+            {
+              type: 'asset/resource',
+              generator: {
+                filename: 'images/[name].[hash][ext]',
+              },
+            },
+          ],
         },
         {
-          test: /\.(png|jpg|gif|svg)$/,
+          test: /\.(png|jpg|gif)$/,
           type: 'asset/resource',
           generator: {
             filename: 'images/[name].[hash][ext]',
           },
         },
+        // {
+        //   test: /\.s[ac]ss$/i,
+        //   use: [
+        //     {
+        //       loader: MiniCssExtractPlugin.loader,
+        //     },
+        //     {
+        //       loader: 'css-loader',
+        //       options: {
+        //         modules: {
+        //           localIdentName: '[name]_[local]-[hash:base64:5]',
+        //         },
+        //       },
+        //     },
+        //     'sass-loader',
+        //   ],
+        // },
         {
-          test: /\.s[ac]ss$/i,
+          test: /\.module\.scss$/,
           use: [
-            {
-              loader: MiniCssExtractPlugin.loader,
-            },
+            MiniCssExtractPlugin.loader,
             {
               loader: 'css-loader',
               options: {
-                modules: {
-                  localIdentName: '[name]_[local]-[hash:base64:5]',
-                },
+                modules: true,
               },
             },
             'sass-loader',

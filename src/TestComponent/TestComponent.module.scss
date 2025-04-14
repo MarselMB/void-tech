@@ -1,0 +1,14 @@
+@use '../styles/vars' as *;
+
+.testComponent {
+  background-color: white;
+  box-shadow: rgba(3, 0, 71, 0.09) 0px 1px 3px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  border-radius: 8px;
+}
+
+.title {
+  background-color: var(--color-blue);
+}
