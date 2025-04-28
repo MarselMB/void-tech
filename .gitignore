@@ -1,6 +1,8 @@
 # dependencies
-node_modules
+node_modules/
 
 # production
-build
-*storybook.log
+dist/
+
+# tests
+.jest/
