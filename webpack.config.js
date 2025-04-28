@@ -43,11 +43,26 @@ module.exports = (_, { mode }) => {
         },
         {
           test: /\.css$/,
+          use: [MiniCssExtractPlugin.loader, 'css-loader'],
+        },
+        {
+          test: /\.s[ac]ss$/i,
+          use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+          exclude: /\.module\.scss$/,
+        },
+        {
+          test: /\.module\.scss$/,
           use: [
+            MiniCssExtractPlugin.loader,
             {
-              loader: MiniCssExtractPlugin.loader,
+              loader: 'css-loader',
+              options: {
+                modules: {
+                  localIdentName: '[name]_[local]-[hash:base64:5]',
+                },
+              },
             },
-            'css-loader',
+            'sass-loader',
           ],
         },
         {
@@ -72,36 +87,6 @@ module.exports = (_, { mode }) => {
           generator: {
             filename: 'images/[name].[hash][ext]',
           },
-        },
-        // {
-        //   test: /\.s[ac]ss$/i,
-        //   use: [
-        //     {
-        //       loader: MiniCssExtractPlugin.loader,
-        //     },
-        //     {
-        //       loader: 'css-loader',
-        //       options: {
-        //         modules: {
-        //           localIdentName: '[name]_[local]-[hash:base64:5]',
-        //         },
-        //       },
-        //     },
-        //     'sass-loader',
-        //   ],
-        // },
-        {
-          test: /\.module\.scss$/,
-          use: [
-            MiniCssExtractPlugin.loader,
-            {
-              loader: 'css-loader',
-              options: {
-                modules: true,
-              },
-            },
-            'sass-loader',
-          ],
         },
       ],
     },
