@@ -1,12 +1,9 @@
 import { FC } from 'react';
-import TestComponent from './TestComponent';
+
+import Home from './pages/Home';
 
 const App: FC = () => {
-  return (
-    <div>
-      <TestComponent />
-    </div>
-  );
+  return <Home />;
 };
 
 export default App;
