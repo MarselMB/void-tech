@@ -1,0 +1,35 @@
+@use 'shared/styles/vars' as *;
+
+.productDetails {
+  background-color: white;
+  box-shadow: rgba(3, 0, 71, 0.09) 0px 1px 3px;
+  display: flex;
+  border-radius: 8px;
+}
+
+.img {
+  width: calc(100vw * 0.5);
+}
+
+.textContent {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 1rem;
+}
+
+.name,
+.category {
+  color: $color-text-main;
+  margin: 0px;
+}
+
+.description {
+  color: $color-text-add;
+  margin: 0px;
+  font-size: 13px;
+}
+
+.price {
+  color: rgb(36, 153, 239);
+}
