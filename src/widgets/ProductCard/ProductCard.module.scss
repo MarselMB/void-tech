@@ -1,0 +1,38 @@
+@use 'shared/styles/vars' as *;
+
+.cardProduct {
+  background-color: white;
+  box-shadow: rgba(3, 0, 71, 0.09) 0px 1px 3px;
+  display: flex;
+  flex-direction: column;
+  max-width: calc(100vw / 4);
+  border-radius: 8px;
+}
+
+.textContent {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 1rem;
+}
+
+.name {
+  color: $color-text-main;
+  margin: 0px;
+}
+
+.description {
+  color: $color-text-add;
+  margin: 0px;
+  font-size: 13px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.purchaseContent {
+  color: rgb(36, 153, 239);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
