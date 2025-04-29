@@ -1,0 +1,18 @@
+@use 'shared/styles/vars' as *;
+
+.addToCartBtn {
+  display: flex;
+  align-items: center;
+  height: 35px;
+}
+
+.counterBtn {
+  display: flex;
+  align-items: center;
+}
+
+.counterText {
+  text-align: center;
+  width: 40px;
+  color: $color-text-main;
+}

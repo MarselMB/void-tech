@@ -1,4 +1,5 @@
-.button {
-  min-width: 120px;
-  width: max-content;
+.home {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
 }

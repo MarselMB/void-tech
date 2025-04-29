@@ -31,7 +31,7 @@ const Modal: FC<ModalProps> = ({ visible, children, setVisible }) => {
         {children}
 
         <div className={styles.closeButton}>
-          <IconButton img={close} handleOnClick={handleOnClose} />
+          <IconButton img={close} onClick={handleOnClose} />
         </div>
       </div>
     </div>
