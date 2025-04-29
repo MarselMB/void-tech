@@ -43,30 +43,17 @@ module.exports = (_, { mode }) => {
         },
         {
           test: /\.css$/,
-          use: [
-            {
-              loader: MiniCssExtractPlugin.loader,
-            },
-            'css-loader',
-          ],
-        },
-        {
-          test: /\.svg/,
-          type: 'asset/inline',
-        },
-        {
-          test: /\.(png|jpg|gif|svg)$/,
-          type: 'asset/resource',
-          generator: {
-            filename: 'images/[name].[hash][ext]',
-          },
+          use: [MiniCssExtractPlugin.loader, 'css-loader'],
         },
         {
           test: /\.s[ac]ss$/i,
+          use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+          exclude: /\.module\.scss$/,
+        },
+        {
+          test: /\.module\.scss$/,
           use: [
-            {
-              loader: MiniCssExtractPlugin.loader,
-            },
+            MiniCssExtractPlugin.loader,
             {
               loader: 'css-loader',
               options: {
@@ -77,6 +64,29 @@ module.exports = (_, { mode }) => {
             },
             'sass-loader',
           ],
+        },
+        {
+          test: /\.svg$/i,
+          oneOf: [
+            {
+              issuer: /\.[jt]sx?$/,
+              resourceQuery: /react/, // `?react` will trigger this
+              use: ['@svgr/webpack'],
+            },
+            {
+              type: 'asset/resource',
+              generator: {
+                filename: 'images/[name].[hash][ext]',
+              },
+            },
+          ],
+        },
+        {
+          test: /\.(png|jpg|gif)$/,
+          type: 'asset/resource',
+          generator: {
+            filename: 'images/[name].[hash][ext]',
+          },
         },
       ],
     },

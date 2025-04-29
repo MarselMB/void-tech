@@ -1,0 +1,11 @@
+@use 'shared/styles/vars' as *;
+
+.header {
+  display: flex;
+  align-items: center;
+  height: $headerHeight;
+  background-color: $color-white;
+  box-shadow: 2px 2px rgba(43, 52, 69, 0.1);
+  padding: 0 30px;
+  gap: 60px;
+}

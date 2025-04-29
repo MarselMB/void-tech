@@ -4,6 +4,7 @@ module.exports = {
     es2021: true,
   },
   extends: [
+    'airbnb',
     'airbnb-typescript',
     'plugin:prettier/recommended',
     'plugin:react-hooks/recommended',
@@ -82,6 +83,7 @@ module.exports = {
       },
     ],
     'react/prop-types': 'off',
+    'react/react-in-jsx-scope': 'off',
 
     // import rules
     'import/prefer-default-export': 'off',

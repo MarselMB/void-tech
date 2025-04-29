@@ -1,11 +1,18 @@
 import { FC } from 'react';
+import { BrowserRouter } from 'react-router';
+
+import Home from './pages/Home';
+import Layout from './widgets/Layout';
+
+import 'src/shared/styles/index.css';
 
 const App: FC = () => {
   return (
-    <div>
-      <h1>Hello, VoidTech!</h1>
-      <p>Welcome to your App.</p>
-    </div>
+    <BrowserRouter>
+      <Layout>
+        <Home />
+      </Layout>
+    </BrowserRouter>
   );
 };
 
