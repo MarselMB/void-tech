@@ -1,0 +1,41 @@
+@use 'shared/styles/vars' as *;
+
+.cartItem {
+  position: relative;
+  background-color: white;
+  box-shadow: rgba(3, 0, 71, 0.09) 0px 1px 3px;
+  display: flex;
+  border-radius: 8px;
+}
+
+.img {
+  height: 140px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 8px;
+  padding: 1rem;
+}
+
+.name {
+  color: $color-text-main;
+  margin: 0px;
+}
+
+.price {
+  color: $color-text-add;
+  margin: 0px;
+}
+
+.total {
+  color: rgb(36, 153, 239);
+}
+
+.closeButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
