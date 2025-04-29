@@ -1,6 +1,6 @@
 import React, { FC, ReactNode } from 'react';
 
-import close from './close.svg';
+import close from 'src/shared/assets/icons/close.svg';
 
 import IconButton from '../IconButton';
 

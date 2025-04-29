@@ -5,6 +5,7 @@ import Button from 'src/shared/ui/Button';
 import AddToCartBtn from 'src/features/AddToCartBtn';
 import ProductCard from 'src/widgets/ProductCard';
 import ProductDetails from 'src/widgets/ProductDetails';
+import CartItem from 'src/widgets/CartItem';
 
 import { PRODUCT_1 } from 'src/shared/constants/mocks/productItem';
 
@@ -32,6 +33,8 @@ const Home: FC = () => {
         <ProductCard price={price} img={img} name={name} description={description} />
 
         <ProductDetails price={price} img={img} name={name} description={description} category={category} />
+
+        <CartItem price={price} img={img} name={name} counter={counter} setCounter={setCounter} />
       </div>
 
       <Modal visible={visibleModal} setVisible={setVisibleModal}>

@@ -10,7 +10,7 @@ interface IconButtonProps {
 const IconButton: FC<IconButtonProps> = ({ onClick, img }) => {
   return (
     <button type="button" className={styles.iconButton} onClick={onClick}>
-      <img src={img} alt="close" className={styles.img} />
+      <img src={img} alt="img" className={styles.img} />
     </button>
   );
 };
