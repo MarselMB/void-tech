@@ -1,0 +1,17 @@
+@use 'shared/styles/vars' as *;
+
+.main {
+  overflow: auto;
+  height: calc(100vh - $headerHeight);
+  display: flex;
+  flex-direction: column;
+  row-gap: 50px;
+  padding: 40px;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 3;
+}
