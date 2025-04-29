@@ -3,12 +3,17 @@ import { FC, useState } from 'react';
 import Modal from 'src/shared/ui/Modal';
 import Button from 'src/shared/ui/Button';
 import AddToCartBtn from 'src/features/AddToCartBtn';
+import ProductCard from 'src/widgets/ProductCard';
+
+import { PRODUCT_1 } from 'src/shared/constants/mocks/productItem';
 
 import * as styles from './Home.module.scss';
 
 const Home: FC = () => {
   const [visibleModal, setVisibleModal] = useState<boolean>(false);
   const [counter, setCounter] = useState<number>(0);
+
+  const { price, img, name, description } = PRODUCT_1;
 
   const handleOnClickOpenModal = () => {
     setVisibleModal(true);
@@ -22,6 +27,8 @@ const Home: FC = () => {
         </div>
 
         <AddToCartBtn counter={counter} setCounter={setCounter} />
+
+        <ProductCard price={price} img={img} name={name} description={description} />
       </div>
 
       <Modal visible={visibleModal} setVisible={setVisibleModal}>
