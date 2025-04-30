@@ -1,14 +1,10 @@
-import { FC, ReactNode } from 'react';
+import { FC, PropsWithChildren } from 'react';
 
 import Header from 'src/widgets/Header';
 
 import * as styles from './Layout.module.scss';
 
-export type LayoutProps = {
-  children: ReactNode;
-};
-
-const Layout: FC<LayoutProps> = ({ children }) => {
+const Layout: FC<PropsWithChildren> = ({ children }) => {
   return (
     <div>
       <Header className={styles.header} />
