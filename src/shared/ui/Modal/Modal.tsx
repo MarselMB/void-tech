@@ -1,4 +1,4 @@
-import React, { FC, ReactNode } from 'react';
+import React, { FC, PropsWithChildren } from 'react';
 
 import close from 'src/shared/assets/icons/close.svg';
 
@@ -8,11 +8,10 @@ import * as styles from './Modal.module.scss';
 
 interface ModalProps {
   visible: boolean;
-  children: ReactNode;
   setVisible: (visible: boolean) => void;
 }
 
-const Modal: FC<ModalProps> = ({ visible, children, setVisible }) => {
+const Modal: FC<PropsWithChildren<ModalProps>> = ({ visible, children, setVisible }) => {
   const handleOnClose = () => {
     setVisible(false);
   };
