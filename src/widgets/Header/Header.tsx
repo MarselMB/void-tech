@@ -2,6 +2,7 @@ import { FC } from 'react';
 import cn from 'clsx';
 
 import Logo from 'src/shared/ui/Logo';
+import ThemeToggle from 'src/features/ThemeSwitcher';
 
 import * as styles from './Header.module.scss';
 
@@ -12,8 +13,15 @@ export interface HeaderProps {
 const Header: FC<HeaderProps> = ({ className }) => {
   return (
     <header className={cn(styles.header, className)}>
-      <Logo />
-      <div>Navigation...</div>
+      <div className={styles.logo}>
+        <Logo />
+      </div>
+
+      <nav className={styles.nav}>Navigation...</nav>
+
+      <div className={styles.themeToggle}>
+        <ThemeToggle />
+      </div>
     </header>
   );
 };
