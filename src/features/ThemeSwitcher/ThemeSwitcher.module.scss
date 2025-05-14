@@ -1,0 +1,10 @@
+@use 'app/styles/vars' as *;
+
+.btn {
+  border: 0;
+  padding: 4px;
+  background: none;
+  outline: none;
+  cursor: pointer;
+  color: var(--text-primary-color);
+}

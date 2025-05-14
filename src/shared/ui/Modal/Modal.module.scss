@@ -1,4 +1,5 @@
-@use 'shared/styles/vars' as *;
+@use 'app/styles/vars' as *;
+@use 'app/styles/mixins' as *;
 
 .modal {
   position: fixed;
@@ -14,15 +15,14 @@
 }
 
 .modalContent {
+  @include modalWrapper;
   position: relative;
-  background-color: $color-white;
   padding: 60px;
-  border-radius: 8px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
   max-height: calc(100vh - 180px);
   max-width: calc(100vw - 180px);
   overflow-y: auto;
   scrollbar-width: thin;
+  color: var(--text-primary-color);
 }
 
 .closeButton {

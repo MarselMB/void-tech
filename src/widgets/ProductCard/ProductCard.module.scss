@@ -1,12 +1,11 @@
-@use 'shared/styles/vars' as *;
+@use 'app/styles/vars' as *;
+@use 'app/styles/mixins' as *;
 
 .cardProduct {
-  background-color: white;
-  box-shadow: rgba(3, 0, 71, 0.09) 0px 1px 3px;
+  @include modalWrapper;
   display: flex;
   flex-direction: column;
   max-width: calc(100vw / 4);
-  border-radius: 8px;
 }
 
 .textContent {
@@ -17,12 +16,12 @@
 }
 
 .name {
-  color: $color-text-main;
+  color: var(--text-primary-color);
   margin: 0px;
 }
 
 .description {
-  color: $color-text-add;
+  color: var(--text-secondary-color);
   margin: 0px;
   font-size: 13px;
   overflow: hidden;
@@ -31,7 +30,7 @@
 }
 
 .purchaseContent {
-  color: rgb(36, 153, 239);
+  color: $blue-color;
   display: flex;
   align-items: center;
   justify-content: space-between;
