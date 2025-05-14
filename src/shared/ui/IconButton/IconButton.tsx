@@ -1,16 +1,15 @@
-import { FC } from 'react';
+import { FC, PropsWithChildren } from 'react';
 
 import * as styles from './IconButton.module.scss';
 
 interface IconButtonProps {
   onClick: () => void;
-  img: string;
 }
 
-const IconButton: FC<IconButtonProps> = ({ onClick, img }) => {
+const IconButton: FC<PropsWithChildren<IconButtonProps>> = ({ onClick, children }) => {
   return (
     <button type="button" className={styles.iconButton} onClick={onClick}>
-      <img src={img} alt="img" className={styles.img} />
+      {children}
     </button>
   );
 };

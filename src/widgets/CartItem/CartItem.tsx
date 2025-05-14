@@ -1,9 +1,8 @@
 import { FC } from 'react';
+import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 
 import AddToCartBtn from 'src/features/AddToCartBtn';
 import IconButton from 'src/shared/ui/IconButton';
-
-import close from 'src/shared/assets/icons/close.svg';
 
 import * as styles from './CartItem.module.scss';
 
@@ -42,7 +41,9 @@ const CartItem: FC<CartItemProps> = ({ price, img, name, counter, setCounter }) 
       </div>
 
       <div className={styles.closeButton}>
-        <IconButton img={close} onClick={handleOnClose} />
+        <IconButton onClick={handleOnClose}>
+          <CloseRoundedIcon />
+        </IconButton>
       </div>
     </div>
   );

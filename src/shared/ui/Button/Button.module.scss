@@ -1,9 +1,11 @@
+@use 'app/styles/vars' as *;
+
 .button {
   display: inline-block;
   min-width: 84px;
   padding: 10px;
   color: white;
-  background: rgb(36, 153, 239);
+  background: $blue-color;
   border: none;
   border-radius: 5px;
   cursor: pointer;

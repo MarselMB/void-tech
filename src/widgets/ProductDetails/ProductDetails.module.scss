@@ -1,10 +1,9 @@
-@use 'shared/styles/vars' as *;
+@use 'app/styles/vars' as *;
+@use 'app/styles/mixins' as *;
 
 .productDetails {
-  background-color: white;
-  box-shadow: rgba(3, 0, 71, 0.09) 0px 1px 3px;
+  @include modalWrapper;
   display: flex;
-  border-radius: 8px;
 }
 
 .img {
@@ -20,16 +19,16 @@
 
 .name,
 .category {
-  color: $color-text-main;
+  color: var(--text-primary-color);
   margin: 0px;
 }
 
 .description {
-  color: $color-text-add;
+  color: var(--text-secondary-color);
   margin: 0px;
   font-size: 13px;
 }
 
 .price {
-  color: rgb(36, 153, 239);
+  color: $blue-color;
 }

@@ -1,6 +1,5 @@
 import React, { FC, PropsWithChildren } from 'react';
-
-import close from 'src/shared/assets/icons/close.svg';
+import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 
 import IconButton from '../IconButton';
 
@@ -30,7 +29,9 @@ const Modal: FC<PropsWithChildren<ModalProps>> = ({ visible, children, setVisibl
         {children}
 
         <div className={styles.closeButton}>
-          <IconButton img={close} onClick={handleOnClose} />
+          <IconButton onClick={handleOnClose}>
+            <CloseRoundedIcon />
+          </IconButton>
         </div>
       </div>
     </div>

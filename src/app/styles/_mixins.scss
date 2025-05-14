@@ -1,0 +1,5 @@
+@mixin modalWrapper {
+  background-color: var(--modal-bg);
+  box-shadow: var(--modal-bsh) 0px 1px 3px;
+  border-radius: 8px;
+}

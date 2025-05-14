@@ -1,10 +1,9 @@
 import { FC } from 'react';
+import AddRoundedIcon from '@mui/icons-material/AddRounded';
+import RemoveRoundedIcon from '@mui/icons-material/RemoveRounded';
 
 import IconButton from 'src/shared/ui/IconButton';
 import Button from 'src/shared/ui/Button';
-
-import plus from './plus.svg';
-import minus from './minus.svg';
 
 import * as styles from './AddToCartBtn.module.scss';
 
@@ -28,11 +27,15 @@ const AddToCartBtn: FC<AddToCartBtnProps> = ({ counter, setCounter }) => {
 
       {!!counter && (
         <div className={styles.counterBtn}>
-          <IconButton img={plus} onClick={handleOnclickPlus} />
+          <IconButton onClick={handleOnclickPlus}>
+            <AddRoundedIcon />
+          </IconButton>
 
           <h5 className={styles.counterText}>{counter}</h5>
 
-          <IconButton img={minus} onClick={handleOnclickMinus} />
+          <IconButton onClick={handleOnclickMinus}>
+            <RemoveRoundedIcon />
+          </IconButton>
         </div>
       )}
     </div>

@@ -1,11 +1,10 @@
-@use 'shared/styles/vars' as *;
+@use 'app/styles/vars' as *;
+@use 'app/styles/mixins' as *;
 
 .cartItem {
+  @include modalWrapper;
   position: relative;
-  background-color: white;
-  box-shadow: rgba(3, 0, 71, 0.09) 0px 1px 3px;
   display: flex;
-  border-radius: 8px;
 }
 
 .img {
@@ -21,17 +20,17 @@
 }
 
 .name {
-  color: $color-text-main;
+  color: var(--text-primary-color);
   margin: 0px;
 }
 
 .price {
-  color: $color-text-add;
+  color: var(--text-secondary-color);
   margin: 0px;
 }
 
 .total {
-  color: rgb(36, 153, 239);
+  color: $blue-color;
 }
 
 .closeButton {

@@ -1,4 +1,4 @@
-@use 'shared/styles/vars' as *;
+@use 'app/styles/vars' as *;
 
 .btn {
   border: 0;
@@ -6,5 +6,5 @@
   background: none;
   outline: none;
   cursor: pointer;
-  color: $color-text-main;
+  color: var(--text-primary-color);
 }

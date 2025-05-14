@@ -1,4 +1,4 @@
-@use 'shared/styles/vars' as *;
+@use 'app/styles/vars' as *;
 
 .addToCartBtn {
   display: flex;
@@ -14,5 +14,5 @@
 .counterText {
   text-align: center;
   width: 40px;
-  color: $color-text-main;
+  color: var(--text-primary-color);
 }
