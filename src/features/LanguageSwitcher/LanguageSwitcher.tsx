@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import AvatarButton from 'src/shared/ui/AvatarButton';
 
 import * as styles from './LanguageSwitcher.module.scss';
 
@@ -11,9 +12,9 @@ const LanguageSwitcher = () => {
   };
 
   return (
-    <button type="button" className={styles.btn} onClick={toggleLanguage}>
+    <AvatarButton onClick={toggleLanguage} className={styles.languageSwitcher}>
       {i18n.language === 'ru' ? 'RU' : 'EN'}
-    </button>
+    </AvatarButton>
   );
 };
 
