@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
+import { useTranslation } from 'react-i18next';
 
 import AddToCartBtn from 'src/features/AddToCartBtn';
 import IconButton from 'src/shared/ui/IconButton';
@@ -15,6 +16,8 @@ interface CartItemProps {
 }
 
 const CartItem: FC<CartItemProps> = ({ price, img, name, counter, setCounter }) => {
+  const { t } = useTranslation();
+
   const handleOnClose = () => {
     setCounter(0);
   };
@@ -33,7 +36,7 @@ const CartItem: FC<CartItemProps> = ({ price, img, name, counter, setCounter }) 
               <span className={styles.total}>{`$${price * counter}`}</span>
             </>
           ) : (
-            'Товар не добавлен в корзину'
+            t('notAddedCart')
           )}
         </h5>
 

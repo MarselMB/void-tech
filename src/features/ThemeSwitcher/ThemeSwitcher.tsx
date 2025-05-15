@@ -4,16 +4,12 @@ import DarkModeIcon from '@mui/icons-material/DarkMode';
 
 import { ThemeContext } from 'src/app/providers/ThemeProvider/ThemeContext';
 
-import * as styles from './ThemeSwitcher.module.scss';
+import AvatarButton from 'src/shared/ui/AvatarButton';
 
 const ThemeSwitcher = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
 
-  return (
-    <button type="button" className={styles.btn} onClick={toggleTheme}>
-      {theme === 'dark' ? <DarkModeIcon /> : <LightModeIcon />}
-    </button>
-  );
+  return <AvatarButton onClick={toggleTheme}>{theme === 'dark' ? <DarkModeIcon /> : <LightModeIcon />}</AvatarButton>;
 };
 
 export default ThemeSwitcher;
