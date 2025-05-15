@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import AddRoundedIcon from '@mui/icons-material/AddRounded';
 import RemoveRoundedIcon from '@mui/icons-material/RemoveRounded';
+import { useTranslation } from 'react-i18next';
 
 import IconButton from 'src/shared/ui/IconButton';
 import Button from 'src/shared/ui/Button';
@@ -13,6 +14,8 @@ interface AddToCartBtnProps {
 }
 
 const AddToCartBtn: FC<AddToCartBtnProps> = ({ counter, setCounter }) => {
+  const { t } = useTranslation();
+
   const handleOnclickPlus = () => {
     setCounter(counter + 1);
   };
@@ -23,7 +26,7 @@ const AddToCartBtn: FC<AddToCartBtnProps> = ({ counter, setCounter }) => {
 
   return (
     <div className={styles.addToCartBtn}>
-      {!counter && <Button title="В корзину" onClick={handleOnclickPlus} />}
+      {!counter && <Button title={t('addToCart')} onClick={handleOnclickPlus} />}
 
       {!!counter && (
         <div className={styles.counterBtn}>

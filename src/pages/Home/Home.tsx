@@ -1,4 +1,5 @@
 import { FC, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import Modal from 'src/shared/ui/Modal';
 import Button from 'src/shared/ui/Button';
@@ -12,6 +13,8 @@ import { PRODUCT_1 } from 'src/shared/constants/mocks/productItem';
 import * as styles from './Home.module.scss';
 
 const Home: FC = () => {
+  const { t } = useTranslation();
+
   const [visibleModal, setVisibleModal] = useState<boolean>(false);
   const [counter, setCounter] = useState<number>(0);
 
@@ -25,7 +28,7 @@ const Home: FC = () => {
     <>
       <div className={styles.home}>
         <div>
-          <Button title="Модальное окно" onClick={handleOnClickOpenModal} />
+          <Button title={t('modal')} onClick={handleOnClickOpenModal} />
         </div>
 
         <AddToCartBtn counter={counter} setCounter={setCounter} />
