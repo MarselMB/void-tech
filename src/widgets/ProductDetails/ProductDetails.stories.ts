@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { PRODUCT_1 } from 'src/shared/constants/mocks/productItem';
+import { PRODUCTS } from 'src/shared/constants/mocks/products';
 
 import ProductDetails from './ProductDetails';
 
@@ -18,10 +18,10 @@ type Story = StoryObj<typeof meta>;
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Example: Story = {
   args: {
-    price: PRODUCT_1.price,
-    category: PRODUCT_1.category,
-    img: PRODUCT_1.img,
-    name: PRODUCT_1.name,
-    description: PRODUCT_1.description,
+    price: PRODUCTS[0].price,
+    category: PRODUCTS[0].category,
+    img: PRODUCTS[0].img,
+    name: PRODUCTS[0].name,
+    description: PRODUCTS[0].description,
   },
 };
