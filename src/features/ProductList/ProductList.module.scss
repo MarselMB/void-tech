@@ -1,0 +1,17 @@
+@use 'app/styles/vars' as *;
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 36px;
+}
+
+.hiddenList {
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 0;
+  overflow: hidden;
+  pointer-events: none;
+}

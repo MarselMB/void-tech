@@ -5,7 +5,7 @@
   @include modalWrapper;
   display: flex;
   flex-direction: column;
-  max-width: calc(100vw / 4);
+  width: 100%;
 }
 
 .textContent {

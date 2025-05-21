@@ -11,8 +11,9 @@ interface ProductCardProps {
 
 const ProductCard: FC<ProductCardProps> = ({ price, img, name, description }) => {
   const [counter, setCounter] = useState<number>(0);
+
   return (
-    <div className={styles.cardProduct}>
+    <div className={styles.cardProduct} data-card>
       <img src={img} alt="product" />
 
       <div className={styles.textContent}>

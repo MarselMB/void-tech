@@ -7,6 +7,7 @@ import AddToCartBtn from 'src/features/AddToCartBtn';
 import ProductCard from 'src/widgets/ProductCard';
 import ProductDetails from 'src/widgets/ProductDetails';
 import CartItem from 'src/widgets/CartItem';
+import ProductList from 'src/features/ProductList';
 
 import { PRODUCTS } from 'src/shared/constants/mocks/products';
 
@@ -27,6 +28,8 @@ const Home: FC = () => {
   return (
     <>
       <div className={styles.home}>
+        <ProductList />
+
         <div>
           <Button title={t('modal')} onClick={handleOnClickOpenModal} />
         </div>
