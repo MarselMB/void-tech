@@ -1,4 +1,5 @@
 import React, { FC, PropsWithChildren } from 'react';
+import { createPortal } from 'react-dom';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 
 import IconButton from '../IconButton';
@@ -8,9 +9,10 @@ import * as styles from './Modal.module.scss';
 interface ModalProps {
   visible: boolean;
   setVisible: (visible: boolean) => void;
+  container?: HTMLElement;
 }
 
-const Modal: FC<PropsWithChildren<ModalProps>> = ({ visible, children, setVisible }) => {
+const Modal: FC<PropsWithChildren<ModalProps>> = ({ visible, setVisible, children, container = document.body }) => {
   const handleOnClose = () => {
     setVisible(false);
   };
@@ -23,7 +25,7 @@ const Modal: FC<PropsWithChildren<ModalProps>> = ({ visible, children, setVisibl
 
   if (!visible) return null;
 
-  return (
+  return createPortal(
     <div className={styles.modal} onClick={handleOnClickModal} role="presentation">
       <div className={styles.modalContent}>
         {children}
@@ -34,7 +36,8 @@ const Modal: FC<PropsWithChildren<ModalProps>> = ({ visible, children, setVisibl
           </IconButton>
         </div>
       </div>
-    </div>
+    </div>,
+    container,
   );
 };
 
