@@ -7,8 +7,9 @@ import AddToCartBtn from 'src/features/AddToCartBtn';
 import ProductCard from 'src/widgets/ProductCard';
 import ProductDetails from 'src/widgets/ProductDetails';
 import CartItem from 'src/widgets/CartItem';
+import ProductList from 'src/features/ProductList';
 
-import { PRODUCT_1 } from 'src/shared/constants/mocks/productItem';
+import { PRODUCTS } from 'src/shared/constants/mocks/products';
 
 import * as styles from './Home.module.scss';
 
@@ -18,7 +19,7 @@ const Home: FC = () => {
   const [visibleModal, setVisibleModal] = useState<boolean>(false);
   const [counter, setCounter] = useState<number>(0);
 
-  const { price, img, name, description, category } = PRODUCT_1;
+  const { price, img, name, description, category } = PRODUCTS[0];
 
   const handleOnClickOpenModal = () => {
     setVisibleModal(true);
@@ -27,6 +28,8 @@ const Home: FC = () => {
   return (
     <>
       <div className={styles.home}>
+        <ProductList />
+
         <div>
           <Button title={t('modal')} onClick={handleOnClickOpenModal} />
         </div>

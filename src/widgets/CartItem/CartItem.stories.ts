@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { PRODUCT_1 } from 'src/shared/constants/mocks/productItem';
+import { PRODUCTS } from 'src/shared/constants/mocks/products';
 
 import CartItem from './CartItem';
 
@@ -18,18 +18,18 @@ type Story = StoryObj<typeof meta>;
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const EmptyCartItem: Story = {
   args: {
-    price: PRODUCT_1.price,
-    img: PRODUCT_1.img,
-    name: PRODUCT_1.name,
+    price: PRODUCTS[0].price,
+    img: PRODUCTS[0].img,
+    name: PRODUCTS[0].name,
     counter: 0,
   },
 };
 
 export const ProductInCart: Story = {
   args: {
-    price: PRODUCT_1.price,
-    img: PRODUCT_1.img,
-    name: PRODUCT_1.name,
+    price: PRODUCTS[0].price,
+    img: PRODUCTS[0].img,
+    name: PRODUCTS[0].name,
     counter: 2,
   },
 };
