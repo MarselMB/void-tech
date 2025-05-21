@@ -37,7 +37,7 @@ const ProductList: FC = () => {
       const count = Array.from(cards).filter(card => rows.includes((card as HTMLElement).offsetTop)).length;
 
       setBatchSize(count);
-      setVisibleCount(1 * count);
+      setVisibleCount(2 * count);
     };
 
     calculateVisible();
