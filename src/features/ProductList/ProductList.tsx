@@ -1,4 +1,4 @@
-import { FC, useEffect, useRef, useState } from 'react';
+import { FC, useCallback, useEffect, useRef, useState } from 'react';
 import cn from 'clsx';
 
 import ProductCard from 'src/widgets/ProductCard';
@@ -9,7 +9,15 @@ import * as styles from './ProductList.module.scss';
 
 const ProductList: FC = () => {
   const hiddenRef = useRef<HTMLDivElement>(null);
-  const [visibleCount, setVisibleCount] = useState<number | null>(null);
+  const observerRef = useRef<IntersectionObserver | null>(null);
+  const lastCardRef = useRef<HTMLDivElement | null>(null);
+
+  const [visibleCount, setVisibleCount] = useState<number>(0);
+  const [batchSize, setBatchSize] = useState<number>(0);
+
+  const loadMore = useCallback(() => {
+    setVisibleCount(prev => Math.min(prev + batchSize, PRODUCTS.length));
+  }, [batchSize]);
 
   useEffect(() => {
     const calculateVisible = () => {
@@ -23,19 +31,47 @@ const ProductList: FC = () => {
         rowHeights.add((card as HTMLElement).offsetTop);
       });
 
-      const maxRows = 2;
       const rows = Array.from(rowHeights)
         .sort((a, b) => a - b)
-        .slice(0, maxRows);
+        .slice(0, 1);
       const count = Array.from(cards).filter(card => rows.includes((card as HTMLElement).offsetTop)).length;
 
-      setVisibleCount(count);
+      setBatchSize(count);
+      setVisibleCount(1 * count);
     };
 
     calculateVisible();
     window.addEventListener('resize', calculateVisible);
     return () => window.removeEventListener('resize', calculateVisible);
   }, []);
+
+  useEffect(() => {
+    if (observerRef.current) observerRef.current.disconnect();
+
+    observerRef.current = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          loadMore();
+        }
+      },
+      {
+        rootMargin: '0px',
+        threshold: 1.0,
+      },
+    );
+
+    const lastCardEl = lastCardRef.current;
+
+    if (lastCardEl) {
+      observerRef.current.observe(lastCardEl);
+    }
+
+    return () => {
+      if (observerRef.current && lastCardEl) {
+        observerRef.current.unobserve(lastCardEl);
+      }
+    };
+  }, [loadMore, visibleCount]);
 
   return (
     <>
@@ -54,15 +90,20 @@ const ProductList: FC = () => {
 
       {visibleCount !== null && (
         <div className={styles.list}>
-          {PRODUCTS.slice(0, visibleCount).map(product => (
-            <ProductCard
-              key={product.name}
-              price={product.price}
-              img={product.img}
-              name={product.name}
-              description={product.description}
-            />
-          ))}
+          {PRODUCTS.slice(0, visibleCount).map((product, index, array) => {
+            const isLast = index === array.length - 1;
+
+            return (
+              <div key={product.name} ref={isLast ? lastCardRef : null} data-card>
+                <ProductCard
+                  price={product.price}
+                  img={product.img}
+                  name={product.name}
+                  description={product.description}
+                />
+              </div>
+            );
+          })}
         </div>
       )}
     </>
