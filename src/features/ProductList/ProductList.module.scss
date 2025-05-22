@@ -8,10 +8,10 @@
 
 .hiddenList {
   visibility: hidden;
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 0;
-  overflow: hidden;
   pointer-events: none;
+  position: fixed;
+  top: -10000px;
+  left: 0;
+  width: 100%;
+  z-index: -1;
 }
