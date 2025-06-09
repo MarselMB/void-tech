@@ -7,6 +7,8 @@
 **Stack and technologies:**  
 TypeScript, React, MUI, WebSockets, SCSS, Storybook, ESLint, Prettier, Husky
 
+---
+
 **Features:**  
 - Theme switching  
 - Language switching  
