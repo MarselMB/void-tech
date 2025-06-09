@@ -1,26 +1,15 @@
 # void-tech
 
-**void-tech** — это проект для успешного успеха
+**void-tech** is a personal project for successful success
 
 ---
 
-## Технологии
+**Stack and technologies:**  
+TypeScript, React, MUI, WebSockets, SCSS, Storybook, ESLint, Prettier, Husky
 
-- TypeScript  
-- React  
-- MUI  
-- WebSockets  
-- SCSS  
-- Storybook  
-- ESLint  
-- Prettier  
-- husky  
-
----
-
-## Основные возможности
-
-- Смена темы (темная/светлая)  
-- Смена языка интерфейса
-- Пользовательские UI-элементы  
-- Архитектура FSD (Feature-Sliced Design)
+**Features:**  
+- Theme switching  
+- Language switching  
+- Modal window implementation  
+- UI components  
+- Feature-Sliced Design (FSD) architecture
